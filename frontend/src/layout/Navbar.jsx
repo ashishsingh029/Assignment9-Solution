@@ -7,7 +7,7 @@ const Navbar = () => {
                 <Link className = 'navbar-brand' to = '/'>
                     Assignment-9
                 </Link>
-                <ul class = 'navbar-nav me-auto mb-2 mb-lg-0'>
+                <ul className = 'navbar-nav me-auto mb-2 mb-lg-0'>
                     <li className = 'nav-item dropdown list-unstyled'>
                         <Link className = 'nav-link dropdown-toggle' to = '/' role = 'button' data-bs-toggle = 'dropdown' aria-expanded = 'false'>
                         StudentInfoRoutes

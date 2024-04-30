@@ -5,6 +5,8 @@ import Three from './pages/Three'
 import Four from './pages/Four'
 import Five from './pages/Five'
 import Layout from './layout/Layout'
+import AddStudentInfo from './pages/StudentInfo/AddStudentInfo'
+import GetAllStudentsInfo from './pages/StudentInfo/GetAllStudentsInfo'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
@@ -15,7 +17,7 @@ const App = () => {
             path: '/',
             element: <Layout />,
             children: [
-                { path: '/', element: <One name = 'Singh' age = '20'/> },
+                { path: '/', element: <GetAllStudentsInfo /> },
                 { path: '/one', element: <One name = 'Babusahab' age = '21'/> },
                 { path: '/two', element: <Two /> },
                 { path: '/three', element: <Three /> },

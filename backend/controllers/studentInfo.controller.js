@@ -14,7 +14,7 @@ const getAllStudentsInfo = async (req, res) => {
     if(students.length > 0) {
         res.status(200).json(students)
     } else {
-        res.status().json({"Message" : "No records found"})
+        res.status(400).json({"Message" : "No records found"})
     }
 }
 
