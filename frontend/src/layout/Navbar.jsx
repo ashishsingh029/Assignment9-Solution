@@ -22,8 +22,8 @@ const Navbar = () => {
                             StudentAcademicInfoRoutes
                         </Link>
                         <ul className = 'dropdown-menu'>
-                            <li> <Link className = 'dropdown-item' to = '/'>AddStudentAcademicInfo</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>GetAllStudentsAcademicInfo</Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/studentacademicinfo/add'>AddStudentAcademicInfo</Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/studentacademicinfo/read'>GetAllStudentsAcademicInfo</Link> </li>
                         </ul>
                     </li>
                     <li className = 'nav-item dropdown list-unstyled'>
@@ -31,8 +31,8 @@ const Navbar = () => {
                         CombinedRoutes
                         </Link>
                         <ul className = 'dropdown-menu'>
-                            <li> <Link className = 'dropdown-item' to = '/'> AddStudentDataToBothCollections </Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'> GetStudentDataFromBothCollectionsByRoll </Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/combined/add'> AddStudentDataToBothCollections </Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/combined/read/:rollno'> GetStudentDataFromBothCollectionsByRoll </Link> </li>
                         </ul>
                     </li>
                 </ul>

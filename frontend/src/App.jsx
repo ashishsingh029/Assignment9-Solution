@@ -18,6 +18,12 @@ const App = () => {
                 { path: '/studentinfo/read', element: <GetAllStudentsInfo /> },
                 { path: '/studentinfo/read/:rollno', element: <StudentInfoByRoll /> },
                 { path: '/studentinfo/update/:rollno', element: <UpdateStudentInfo /> },
+                { path: '/studentacademicinfo/add', element: <AddStudentInfo /> },
+                { path: '/studentacademicinfo/read', element: <GetAllStudentsInfo /> },
+                { path: '/studentacademicinfo/read/:rollno', element: <StudentInfoByRoll /> },
+                { path: '/studentacademicinfo/update/:rollno', element: <UpdateStudentInfo /> },
+                { path: '/combined/add', element: <StudentInfoByRoll /> },
+                { path: '/combined/read/:rollno', element: <UpdateStudentInfo /> }
             ]
         }
     ])
