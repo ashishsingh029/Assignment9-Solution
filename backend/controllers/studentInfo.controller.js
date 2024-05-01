@@ -19,12 +19,12 @@ const getAllStudentsInfo = async (req, res) => {
 }
 
 const getSingleStudentInfoByRoll = async (req, res) => {
-    const roll = req.params.getSingleStudentInfoByRoll
-    const student = await StudentInfoModel.find({rollno : roll})
+    const { roll } = req.params
+    const student = await StudentInfoModel.findOne({rollno : roll})
     if(student != null) {
         res.status(200).json(student)
     } else {
-        res.status(400).json({"Message" : "No student Found"})
+        res.status(404).json({"Message" : "No student Found"})
     }
 }
 

@@ -1,6 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import studentInfoApis from '../../apis/StudentInfoApis'
-const AddStudentInfo = () => {
+const UpdateStudentInfo = () => {
+    const { rollno } = useParams()
     const studentNameRef = useRef(null)
     const studentRollRef = useRef(null)
     const studentMobileRef = useRef(null)
@@ -8,14 +11,34 @@ const AddStudentInfo = () => {
     const studentCityRef = useRef(null)
     const studentStateRef = useRef(null)
     const studentPincodeRef = useRef(null)
-
     const [ message , setMessage ] = useState({
         activated: false,
         success: false
     })
+    const getStudentInfo = async () => {
+        try {
+            let res = await studentInfoApis.getStudentInfoByRoll(rollno)
+            if(res.status) {
+                studentNameRef.current.value = res.data.name
+                studentRollRef.current.value = res.data.rollno
+                studentMobileRef.current.value = res.data.mobile
+                studentEmailRef.current.value = res.data.email
+                studentCityRef.current.value = res.data.address.city
+                studentStateRef.current.value = res.data.address.state
+                studentPincodeRef.current.value = res.data.address.pin
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        if( !message.activated || message.success) {
+            getStudentInfo()
+        }
+    }, [ rollno, message.success ])
     const handleSubmit = async event => {
         event.preventDefault()
-        const newStudentInfo = {
+        const updatedStudentInfo = {
             name: studentNameRef.current.value,
             rollno: Number(studentRollRef.current.value),
             mobile: studentMobileRef.current.value,
@@ -26,20 +49,12 @@ const AddStudentInfo = () => {
                 pin: Number(studentPincodeRef.current.value)
             }
         }
-        // console.log(newStudentInfo)
-        let res = await studentInfoApis.addStudentInfo(newStudentInfo)
+        let res = await studentInfoApis.updateStudentInfo(updatedStudentInfo)
         if(res.status) {
             setMessage({
                 activated: true,
                 success: true
             })
-            studentNameRef.current.value = ''
-            studentRollRef.current.value = ''
-            studentMobileRef.current.value = ''
-            studentEmailRef.current.value = ''
-            studentCityRef.current.value = ''
-            studentStateRef.current.value = ''
-            studentPincodeRef.current.value = ''
         } else {
             setMessage({
                 activated: true,
@@ -49,7 +64,7 @@ const AddStudentInfo = () => {
     }
     return (
         <div className = 'container'>
-            <h1>Add Student Info</h1> <hr />
+            <h1>Update Student Info</h1> <hr />
             <form action = '' method = 'post' className = 'px-4' onSubmit = { handleSubmit }>
                 <div className = "mb-2">
                     <label htmlFor = "name" className = "form-label">
@@ -61,7 +76,7 @@ const AddStudentInfo = () => {
                     <label htmlFor = "roll" className = "form-label">
                         Roll:
                     </label>
-                    <input type="text" ref = {studentRollRef} className="form-control" id="roll" placeholder = 'Enter Roll Number' required/>
+                    <input type="text" ref = {studentRollRef} className="form-control" id="roll" placeholder = 'Enter Roll Number' disabled required/>
                 </div>
                 <div className = "mb-2">
                     <label htmlFor = "mobile" className = "form-label">
@@ -91,20 +106,20 @@ const AddStudentInfo = () => {
                     </div>
                 </div>
                 <button type = "submit" className = "btn w-100 btn-success mb-4 fw-semibold">
-                    Submit
+                    Update
                 </button>
             </form>
             { message.activated && message.success && 
                 <div className = 'alert alert-success'> 
-                    Student Added Successfully!
+                    Student Updated Successfully!
                 </div>
             }
             { message.activated && !message.success && 
                 <div className = 'alert alert-danger'>
-                    Error Adding Student!!
+                    Error Updating Student!!
                 </div>
             }
         </div>
     )
 }
-export default AddStudentInfo
+export default UpdateStudentInfo

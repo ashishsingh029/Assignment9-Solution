@@ -1,28 +1,29 @@
 import React from 'react'
-import One from './pages/One'
-import Two from './pages/Two'
-import Three from './pages/Three'
-import Four from './pages/Four'
-import Five from './pages/Five'
 import Layout from './layout/Layout'
 import AddStudentInfo from './pages/StudentInfo/AddStudentInfo'
 import GetAllStudentsInfo from './pages/StudentInfo/GetAllStudentsInfo'
+import StudentInfoByRoll from './pages/StudentInfo/StudentInfoByRoll'
+import UpdateStudentInfo from './pages/StudentInfo/UpdateStudentInfo'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
 const App = () => {
-    console.log("Backend Api => " + import.meta.env.VITE_BACKEND_API)
+    // console.log("Backend Api => " + import.meta.env.VITE_BACKEND_API)
     const router = createBrowserRouter([
         {
             path: '/',
             element: <Layout />,
             children: [
-                { path: '/', element: <GetAllStudentsInfo /> },
-                { path: '/one', element: <One name = 'Babusahab' age = '21'/> },
-                { path: '/two', element: <Two /> },
-                { path: '/three', element: <Three /> },
-                { path: '/four', element: <Four /> },
-                { path: '/five', element: <Five/> }
+                { path: '/', element: <div className = 'container'><h1>Assignment-9 Solution by Ashish Singh</h1> <hr /> <p>Select any route from navbar to explore</p></div> },
+                { path: '/studentinfo/add', element: <AddStudentInfo /> },
+                { path: '/studentinfo/read', element: <GetAllStudentsInfo /> },
+                { path: '/studentinfo/read/:rollno', element: <StudentInfoByRoll /> },
+                { path: '/studentinfo/update/:rollno', element: <UpdateStudentInfo /> },
+                // { path: '/one', element: <One name = 'Babusahab' age = '21'/> },
+                // { path: '/two', element: <Two /> },
+                // { path: '/three', element: <Three /> },
+                // { path: '/four', element: <Four /> },
+                // { path: '/five', element: <Five/> }
             ]
         }
     ])

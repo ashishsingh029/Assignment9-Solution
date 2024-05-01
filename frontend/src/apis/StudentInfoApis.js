@@ -5,23 +5,46 @@ class StudentInfoApis {
     }
     addStudentInfo = async newStudentInfo => {
         try {
-            console.log(`${this.api}/studentinfo/`)
-            const res = await axios.post(`${this.api}/studentinfo/`, newStudentInfo)
-            console.log(res.data)
-            return { data: res, status: true }
+            await axios.post(`${this.api}/studentinfo`, newStudentInfo)
+            return { status: true }
         } catch (error) {
-            console.log('Error: ' + error.message);
+            console.log(error)
+            return { status: false }
+        }
+    }
+    updateStudentInfo = async updatedStudentInfo => {
+        try {
+            let res = await axios.put(`${this.api}/studentinfo/${updatedStudentInfo.rollno}`, updatedStudentInfo)
+            return { data: res.data, status: true }
+        } catch (error) {
+            console.log("Failed to Update")
+            console.log(error)
             return { status: false }
         }
     }
     getAllStudentInfo = async () => {
         try {
-            console.log(`${this.api}/studentinfo/`)
-            const res = await axios.get(`${this.api}/studentinfo/`)
-            console.log(res.data)
-            return { data: res, status: true }
+            let res = await axios.get(`${this.api}/studentinfo`)
+            return { data: res.data, status: true }
         } catch (error) {
-            console.log('Error: ' + error.message);
+            console.log(error)
+            return { status: false }
+        }
+    }
+    getStudentInfoByRoll = async roll => {
+        try {
+            let res = await axios.get(`${this.api}/studentinfo/${roll}`)
+            return { data: res.data, status: true }
+        } catch (error) {
+            console.log(error)
+            return { status: false }
+        }
+    }
+    deleteStudentInfoByRoll = async roll => {
+        try {
+            await axios.delete(`${this.api}/studentinfo/${roll}`)
+            return { status: true }
+        } catch (error) {
             return { status: false }
         }
     }

@@ -13,11 +13,8 @@ const Navbar = () => {
                         StudentInfoRoutes
                         </Link>
                         <ul className = 'dropdown-menu'>
-                            <li> <Link className = 'dropdown-item' to = '/'>AddStudentInfo</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>GetAllStudentsInfo</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>GetSingleStudentInfoByRoll</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>UpdateStudentByRoll</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>DeleteStudentByRoll</Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/studentinfo/add'>AddStudentInfo</Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/studentinfo/read'>GetAllStudentsInfo</Link> </li>
                         </ul>
                     </li>
                     <li className = 'nav-item dropdown list-unstyled'>
@@ -27,9 +24,6 @@ const Navbar = () => {
                         <ul className = 'dropdown-menu'>
                             <li> <Link className = 'dropdown-item' to = '/'>AddStudentAcademicInfo</Link> </li>
                             <li> <Link className = 'dropdown-item' to = '/'>GetAllStudentsAcademicInfo</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>GetSingleStudentAcademicInfoByRoll</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>UpdateStudentAcademicInfoByRoll</Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/'>DeleteStudentAcademicInfoByRoll</Link> </li>
                         </ul>
                     </li>
                     <li className = 'nav-item dropdown list-unstyled'>
