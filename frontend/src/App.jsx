@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
 const App = () => {
-    // console.log("Backend Api => " + import.meta.env.VITE_BACKEND_API)
     const router = createBrowserRouter([
         {
             path: '/',
@@ -19,11 +18,6 @@ const App = () => {
                 { path: '/studentinfo/read', element: <GetAllStudentsInfo /> },
                 { path: '/studentinfo/read/:rollno', element: <StudentInfoByRoll /> },
                 { path: '/studentinfo/update/:rollno', element: <UpdateStudentInfo /> },
-                // { path: '/one', element: <One name = 'Babusahab' age = '21'/> },
-                // { path: '/two', element: <Two /> },
-                // { path: '/three', element: <Three /> },
-                // { path: '/four', element: <Four /> },
-                // { path: '/five', element: <Five/> }
             ]
         }
     ])

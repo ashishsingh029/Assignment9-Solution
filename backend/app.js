@@ -7,17 +7,16 @@ const {
     combinedRouter
 } = require('./routes')
 require('dotenv').config()
-
 const app = express()
 const PORT = process.env.PORT || 5101
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.get("/", (req, res) => {
-    res.send("<h1>REST API Assingment</h1>")
+app.get('/', (req, res) => {
+    res.send('<h1>REST API Assingment</h1>')
 })
-app.use("/studentinfo", studentInfoRouter)
-app.use("/studentacademicinfo", studentAcademicInfoRouter)
-app.use("/combined",combinedRouter)
+app.use('/studentinfo', studentInfoRouter)
+app.use('/studentacademicinfo', studentAcademicInfoRouter)
+app.use('/combined',combinedRouter)
 dbConnect()
-app.listen(PORT, () => console.log('Backend Server started at PORT -> ' + PORT))
+app.listen(PORT)

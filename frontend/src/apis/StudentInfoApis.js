@@ -17,7 +17,7 @@ class StudentInfoApis {
             let res = await axios.put(`${this.api}/studentinfo/${updatedStudentInfo.rollno}`, updatedStudentInfo)
             return { data: res.data, status: true }
         } catch (error) {
-            console.log("Failed to Update")
+            console.log('Failed to Update')
             console.log(error)
             return { status: false }
         }

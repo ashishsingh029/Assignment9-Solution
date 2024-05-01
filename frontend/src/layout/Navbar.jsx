@@ -19,7 +19,7 @@ const Navbar = () => {
                     </li>
                     <li className = 'nav-item dropdown list-unstyled'>
                         <Link className = 'nav-link dropdown-toggle' to = '/' role = 'button' data-bs-toggle = 'dropdown' aria-expanded = 'false'>
-                        StudentAcademicInfoRoutes
+                            StudentAcademicInfoRoutes
                         </Link>
                         <ul className = 'dropdown-menu'>
                             <li> <Link className = 'dropdown-item' to = '/'>AddStudentAcademicInfo</Link> </li>
@@ -30,9 +30,9 @@ const Navbar = () => {
                         <Link className = 'nav-link dropdown-toggle' to = '/' role = 'button' data-bs-toggle = 'dropdown' aria-expanded = 'false'>
                         CombinedRoutes
                         </Link>
-                        <ul className='dropdown-menu'>
-                            <li> <Link className='dropdown-item' to = '/'>AddStudentDataToBothCollections</Link> </li>
-                            <li> <Link className='dropdown-item' to = '/'>GetStudentDataFromBothCollectionsByRoll</Link> </li>
+                        <ul className = 'dropdown-menu'>
+                            <li> <Link className = 'dropdown-item' to = '/'> AddStudentDataToBothCollections </Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/'> GetStudentDataFromBothCollectionsByRoll </Link> </li>
                         </ul>
                     </li>
                 </ul>

@@ -8,7 +8,6 @@ const AddStudentInfo = () => {
     const studentCityRef = useRef(null)
     const studentStateRef = useRef(null)
     const studentPincodeRef = useRef(null)
-
     const [ message , setMessage ] = useState({
         activated: false,
         success: false
@@ -51,46 +50,46 @@ const AddStudentInfo = () => {
         <div className = 'container'>
             <h1>Add Student Info</h1> <hr />
             <form action = '' method = 'post' className = 'px-4' onSubmit = { handleSubmit }>
-                <div className = "mb-2">
-                    <label htmlFor = "name" className = "form-label">
+                <div className = 'mb-2'>
+                    <label htmlFor = 'name' className = 'form-label'>
                         Name:
                     </label>
-                    <input type = 'text' ref = {studentNameRef} className = "form-control" id = "name" placeholder = 'Enter Student Name' required/>
+                    <input type = 'text' ref = {studentNameRef} className = 'form-control' id = 'name' placeholder = 'Enter Student Name' required/>
                 </div>
-                <div className = "mb-2">
-                    <label htmlFor = "roll" className = "form-label">
+                <div className = 'mb-2'>
+                    <label htmlFor = 'roll' className = 'form-label'>
                         Roll:
                     </label>
-                    <input type="text" ref = {studentRollRef} className="form-control" id="roll" placeholder = 'Enter Roll Number' required/>
+                    <input type = 'text' ref = {studentRollRef} className = 'form-control' id = 'roll' placeholder = 'Enter Roll Number' required/>
                 </div>
-                <div className = "mb-2">
-                    <label htmlFor = "mobile" className = "form-label">
+                <div className = 'mb-2'>
+                    <label htmlFor = 'mobile' className = 'form-label'>
                         Mobile:
                     </label>
-                    <input type = "text" ref = {studentMobileRef} className = "form-control" id = "mobile" placeholder = 'Enter Mobile Number' required/>
+                    <input type = 'text' ref = {studentMobileRef} className = 'form-control' id = 'mobile' placeholder = 'Enter Mobile Number' required/>
                 </div>
-                <div className = "mb-2">
-                    <label htmlFor = "email" className = "form-label">
+                <div className = 'mb-2'>
+                    <label htmlFor = 'email' className = 'form-label'>
                         Email address:
                     </label>
-                    <input type = "email" ref = {studentEmailRef} className = "form-control" id = "email" placeholder = 'Enter Email Address' required/>
+                    <input type = 'email' ref = {studentEmailRef} className = 'form-control' id = 'email' placeholder = 'Enter Email Address' required/>
                 </div>
                 
-                <div className = "input-group mb-3 pe-3">
-                    <div className = "col-sm-4">
-                        <label htmlFor = "city">City:</label>
-                        <input id = "city" ref = {studentCityRef} className = "form-control input-group-lg" type = "text" placeholder = "Enter City" required/>
+                <div className = 'input-group mb-3 pe-3'>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'city'>City:</label>
+                        <input id = 'city' ref = {studentCityRef} className = 'form-control input-group-lg' type = 'text' placeholder = 'Enter City' required/>
                     </div>       
-                    <div className = "col-sm-4">
-                        <label htmlFor = "State" className = "ms-2">State:</label>
-                        <input id = "State" ref = {studentStateRef} className = "form-control input-group-lg ms-2" type = "text" placeholder = "Enter State" required/>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'State' className = 'ms-2'>State:</label>
+                        <input id = 'State' ref = {studentStateRef} className = 'form-control input-group-lg ms-2' type = 'text' placeholder = 'Enter State' required/>
                     </div>
-                    <div className = "col-sm-4">
-                        <label htmlFor = "pincode" className = "ms-3">Pincode:</label>
-                        <input id = "pincode" ref = {studentPincodeRef} className = "form-control input-group-lg ms-3" type = "text" placeholder = "Enter Pincode:" required/>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'pincode' className = 'ms-3'>Pincode:</label>
+                        <input id = 'pincode' ref = {studentPincodeRef} className = 'form-control input-group-lg ms-3' type = 'text' placeholder = 'Enter Pincode:' required/>
                     </div>
                 </div>
-                <button type = "submit" className = "btn w-100 btn-success mb-4 fw-semibold">
+                <button type = 'submit' className = 'btn w-100 btn-success mb-4 fw-semibold'>
                     Submit
                 </button>
             </form>

@@ -41,9 +41,9 @@ const GetAllStudentsInfo = () => {
                                 <td>{student.rollno}</td>  
                                 <td>{student.email}</td>  
                                 <td>
-                                    <Link className = "btn btn-info" to = {`/studentinfo/read/${student.rollno}`}>View</Link>
-                                    <Link className = "btn btn-warning ms-1" to = {`/studentinfo/update/${student.rollno}`}>Update</Link>
-                                    <button className = "btn btn-danger ms-1" onClick = {() => deleteStudentByRoll(student.rollno)}>Delete</button> 
+                                    <Link className = 'btn btn-info' to = {`/studentinfo/read/${student.rollno}`}>View</Link>
+                                    <Link className = 'btn btn-warning ms-1' to = {`/studentinfo/update/${student.rollno}`}>Update</Link>
+                                    <button className = 'btn btn-danger ms-1' onClick = {() => deleteStudentByRoll(student.rollno)}>Delete</button> 
                                 </td>
                             </tr>
                         ))

@@ -4,8 +4,6 @@ const {
     getFromBothCollectionsByRoll
 } = require('../controllers/combined.controller')
 const combinedRouter = express.Router()
-
-combinedRouter.post("/", addToBothCollections)
-combinedRouter.get("/:roll", getFromBothCollectionsByRoll)
-
+combinedRouter.post('/', addToBothCollections)
+combinedRouter.get('/:roll', getFromBothCollectionsByRoll)
 module.exports = combinedRouter

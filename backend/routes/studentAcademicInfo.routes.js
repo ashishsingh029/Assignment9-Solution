@@ -6,12 +6,10 @@ const {
     updateStudentAcademicInfoByRoll,
     deleteStudentAcademicInfoByRoll
 } = require('../controllers/studentAcademicInfo.controller')
-
 const studentAcademicInfoRouter = express.Router()
-studentAcademicInfoRouter.post("/", addStudentAcademicInfo)
-studentAcademicInfoRouter.get("/",getAllStudentsAcademicInfo)
-studentAcademicInfoRouter.get("/:roll",getSingleStudentAcademicInfoByRoll)
-studentAcademicInfoRouter.put("/:roll",updateStudentAcademicInfoByRoll)
-studentAcademicInfoRouter.delete("/:roll",deleteStudentAcademicInfoByRoll)
-
+studentAcademicInfoRouter.post('/', addStudentAcademicInfo)
+studentAcademicInfoRouter.get('/',getAllStudentsAcademicInfo)
+studentAcademicInfoRouter.get('/:roll',getSingleStudentAcademicInfoByRoll)
+studentAcademicInfoRouter.put('/:roll',updateStudentAcademicInfoByRoll)
+studentAcademicInfoRouter.delete('/:roll',deleteStudentAcademicInfoByRoll)
 module.exports = studentAcademicInfoRouter

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const studentAcademicInfoSchema = new mongoose.Schema({
     rollno : {
         type: Number,
@@ -19,6 +18,5 @@ const studentAcademicInfoSchema = new mongoose.Schema({
         required: true 
     }
 })
-
 const StudentAcademicInfo = mongoose.model('studentAcademicInfo', studentAcademicInfoSchema)
 module.exports = StudentAcademicInfo

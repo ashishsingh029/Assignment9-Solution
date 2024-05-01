@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const addressSubSchema = new mongoose.Schema({
     city: {
         type: String,
@@ -14,7 +13,6 @@ const addressSubSchema = new mongoose.Schema({
         required: true
     }
 })
-
 const studentInfoSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -40,7 +38,5 @@ const studentInfoSchema = new mongoose.Schema({
         required: true
     }
 })
-
 const StudentInfo = mongoose.model('studentInfo', studentInfoSchema)
-
 module.exports = StudentInfo

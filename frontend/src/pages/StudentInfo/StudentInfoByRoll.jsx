@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import studentInfoApis from '../../apis/StudentInfoApis'
 import SearchByRollInNavbar from '../../components/SearchByRollInNavbar'
-
 const StudentInfoByRoll = () => {
     const { rollno } = useParams()
     const [ studentInfo, setStudentInfo ] = useState(null)
     const [ deleted, setdeleted ] = useState(false)
     const getStudentInfo = async () => {
-        console.log('Function called')
+        // console.log('Function called')
         try {
             let res = await studentInfoApis.getStudentInfoByRoll(rollno)
             if(res.status) {
@@ -47,7 +46,7 @@ const StudentInfoByRoll = () => {
                         </div>
                     </div>
                 ) : (
-                    <p> { !deleted && 'Loading...' }</p>
+                    <p> { !deleted && 'Student Not Found' }</p>
                 )}
                 { deleted && 
                     <p>Student Deleted Successfully</p>

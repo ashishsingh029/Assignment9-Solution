@@ -1,6 +1,5 @@
 const StudentInfoModel = require('../models/studentInfo.model')
 const StudentAcademicInfoModel = require('../models/studentAcademicInfo.model')
-
 const addToBothCollections = async (req, res) => {
     const {
         name,
@@ -39,17 +38,16 @@ const addToBothCollections = async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 }
-
 const getFromBothCollectionsByRoll = async (req, res) => {
     const { roll } = req.params
     try {
         const mathedstudentInfo = await StudentInfoModel.aggregate([
             {
                 $lookup: {
-                    from: "studentacademicinfos",
-                    localField: "rollno",
-                    foreignField: "rollno",
-                    as: "studentacademicinfos"
+                    from: 'studentacademicinfos',
+                    localField: 'rollno',
+                    foreignField: 'rollno',
+                    as: 'studentacademicinfos'
                 }
             },
             {
@@ -58,7 +56,7 @@ const getFromBothCollectionsByRoll = async (req, res) => {
                 }
             },
             {
-                $unwind: "$studentacademicinfos"
+                $unwind: '$studentacademicinfos'
             },
             {
                 $project: {
@@ -67,26 +65,25 @@ const getFromBothCollectionsByRoll = async (req, res) => {
                     mobile: 1,
                     email: 1,
                     address: {
-                        city: "$address.city",
-                        state: "$address.state",
-                        pin: "$address.pin"
+                        city: '$address.city',
+                        state: '$address.state',
+                        pin: '$address.pin'
                     },
-                    program: "$studentacademicinfos.program",
-                    branch: "$studentacademicinfos.branch",
-                    cgpa: "$studentacademicinfos.cgpa"
+                    program: '$studentacademicinfos.program',
+                    branch: '$studentacademicinfos.branch',
+                    cgpa: '$studentacademicinfos.cgpa'
                 }
             }
         ])
         if(mathedstudentInfo != null){
             res.status(200).json(mathedstudentInfo)
         } else {
-            res.status(404).json({"message": "No relevant records found"})
+            res.status(404).json({'message': 'No relevant records found'})
         }
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 }
-
 module.exports = { 
     addToBothCollections,
     getFromBothCollectionsByRoll 
