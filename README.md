@@ -4,5 +4,5 @@
 
 ##### [ npm run dev ] in the frontend &&
 ##### [ npm run server ] in backend folder &&
-##### don't forget to change .env file varibles accordingly
+##### don't forget to change [ .env ] file varibles accordingly
 #### ✅✅✅👍🤘🤙🙌👐🤝🤝
