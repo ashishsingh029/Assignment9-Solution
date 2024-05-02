@@ -4,4 +4,4 @@
 
 ##### [ npm run dev ] in the frontend &&
 ##### [ npm run server ] in backend folder
-#### ✅✅✅👍👍
+#### ✅✅✅👍🤘🤙🙌👐🤝🤝
