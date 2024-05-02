@@ -5,7 +5,7 @@ const SearchAcademicByRollInNavbar = () => {
     const [ toValue, setToValue ] = useState('/studentinfo/read/')
     const updateToValue = () => {
         const roll = studentRollRef.current.value.trim()
-        setToValue(`/studentinfo/read/${roll}`)
+        setToValue(`/studentacademicinfo/read/${roll}`)
     }
     return (
         <div className = 'd-inline-flex ms-auto'>

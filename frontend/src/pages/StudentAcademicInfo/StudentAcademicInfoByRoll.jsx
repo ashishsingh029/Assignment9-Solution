@@ -9,7 +9,7 @@ const StudentAcademicInfoByRoll = () => {
     const getStudentInfo = async () => {
         // console.log('Function called')
         try {
-            let res = await studentAcademicInfoApis.getStudentInfoByRoll(rollno)
+            let res = await studentAcademicInfoApis.getStudentAcademicInfoByRoll(rollno)
             if(res.status) {
                 setStudentAcademicInfo(res.data)
             }
@@ -18,7 +18,7 @@ const StudentAcademicInfoByRoll = () => {
         }
     }
     const deleteStudentByRoll = async roll => {
-        await studentAcademicInfoApis.deleteStudentInfoByRoll(roll)
+        await studentAcademicInfoApis.deleteStudentAcademicInfoByRoll(roll)
         setStudentAcademicInfo(null)
         setdeleted(true)
     }
@@ -28,7 +28,7 @@ const StudentAcademicInfoByRoll = () => {
     return (
         <div className = 'container'>
             <div className = 'd-flex align-items-center justify-content-between mb-0 pe-0'>
-                <h1 className = 'd-inline-block w-auto'>Student Info By Roll</h1> 
+                <h1 className = 'd-inline-block w-auto'>Student Academic Info By Roll</h1> 
                 <SearchAcademicByRollInNavbar />
             </div>
             <hr />
@@ -40,12 +40,12 @@ const StudentAcademicInfoByRoll = () => {
                         <p className = "card-text">Branch: {studentAcademicInfo.branch}</p>
                         <p className = "card-text">Cgpa: {studentAcademicInfo.cgpa}</p>
                         <div className = 'd-flex justify-content-end ms-auto'>
-                            <Link className = "btn btn-warning ms-1" to = {`/studentinfo/update/${studentAcademicInfo.rollno}`}>Update</Link>
+                            <Link className = "btn btn-warning ms-1" to = {`/studentacademicinfo/update/${studentAcademicInfo.rollno}`}>Update</Link>
                             <button className = "btn btn-danger ms-2" onClick = {() => deleteStudentByRoll(studentAcademicInfo.rollno)}>Delete</button>
                         </div>
                     </div>
                 ) : (
-                    <p> { !deleted && 'Student Not Found' }</p>
+                    <p className = 'p-4 fs-4'> { !deleted && 'Student Not Found' }</p>
                 )}
                 { deleted && 
                     <p>Student Deleted Successfully</p>

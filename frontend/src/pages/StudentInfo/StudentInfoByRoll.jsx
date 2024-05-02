@@ -49,7 +49,7 @@ const StudentInfoByRoll = () => {
                     <p> { !deleted && 'Student Not Found' }</p>
                 )}
                 { deleted && 
-                    <p>Student Deleted Successfully</p>
+                    <p className = 'p-4 fs-4'>Student Deleted Successfully</p>
                 }
             </div>
         </div>
