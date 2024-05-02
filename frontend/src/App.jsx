@@ -3,14 +3,16 @@ import Layout from './layout/Layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
+import AddToBoth from './pages/Combined/AddToBoth'
 import AddStudentInfo from './pages/StudentInfo/AddStudentInfo'
-import GetAllStudentsInfo from './pages/StudentInfo/GetAllStudentsInfo'
-import StudentInfoByRoll from './pages/StudentInfo/StudentInfoByRoll'
 import UpdateStudentInfo from './pages/StudentInfo/UpdateStudentInfo'
+import StudentInfoByRoll from './pages/StudentInfo/StudentInfoByRoll'
+import GetAllStudentsInfo from './pages/StudentInfo/GetAllStudentsInfo'
+import GetInfoByRollFromBoth from './pages/Combined/GetInfoByRollFromBoth'
 import AddStudentAcademicInfo from './pages/StudentAcademicInfo/AddStudentAcademicInfo'
-import GetAllStudentsAcademicInfo from './pages/StudentAcademicInfo/GetAllStudentsAcademicInfo'
 import StudentAcademicInfoByRoll from './pages/StudentAcademicInfo/StudentAcademicInfoByRoll'
 import UpdateStudentAcademicInfo from './pages/StudentAcademicInfo/UpdateStudentAcademicInfo'
+import GetAllStudentsAcademicInfo from './pages/StudentAcademicInfo/GetAllStudentsAcademicInfo'
 const App = () => {
     const router = createBrowserRouter([
         {
@@ -26,8 +28,9 @@ const App = () => {
                 { path: '/studentacademicinfo/read', element: <GetAllStudentsAcademicInfo /> },
                 { path: '/studentacademicinfo/read/:rollno', element: <StudentAcademicInfoByRoll /> },
                 { path: '/studentacademicinfo/update/:rollno', element: <UpdateStudentAcademicInfo /> },
-                { path: '/combined/add', element: <StudentInfoByRoll /> },
-                { path: '/combined/read/:rollno', element: <UpdateStudentInfo /> }
+                { path: '/combined/add', element: <AddToBoth /> },
+                { path: '/combined/read/', element: <GetInfoByRollFromBoth /> },
+                { path: '/combined/read/:rollno', element: <GetInfoByRollFromBoth /> }
             ]
         }
     ])

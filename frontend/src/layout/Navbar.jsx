@@ -32,7 +32,7 @@ const Navbar = () => {
                         </Link>
                         <ul className = 'dropdown-menu'>
                             <li> <Link className = 'dropdown-item' to = '/combined/add'> AddStudentDataToBothCollections </Link> </li>
-                            <li> <Link className = 'dropdown-item' to = '/combined/read/:rollno'> GetStudentDataFromBothCollectionsByRoll </Link> </li>
+                            <li> <Link className = 'dropdown-item' to = '/combined/read/'> GetStudentDataFromBothCollectionsByRoll </Link> </li>
                         </ul>
                     </li>
                 </ul>

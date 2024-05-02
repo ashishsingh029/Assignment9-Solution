@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
-import studentInfoApis from '../../apis/StudentInfoApis'
-const AddStudentInfo = () => {
+import React, { useState, useRef } from 'react'
+import combinedApis from '../../apis/CombinedApis'
+const AddToBoth = () => {
     const studentNameRef = useRef(null)
     const studentRollRef = useRef(null)
     const studentMobileRef = useRef(null)
@@ -8,6 +8,9 @@ const AddStudentInfo = () => {
     const studentCityRef = useRef(null)
     const studentStateRef = useRef(null)
     const studentPincodeRef = useRef(null)
+    const studentProgramRef = useRef(null)
+    const studentBranchRef = useRef(null)
+    const studentCgpaRef = useRef(null)
     const [ message , setMessage ] = useState({
         activated: false,
         success: false
@@ -25,20 +28,28 @@ const AddStudentInfo = () => {
                 pin: Number(studentPincodeRef.current.value)
             }
         }
-        // console.log(newStudentInfo)
-        let res = await studentInfoApis.addStudentInfo(newStudentInfo)
+        const newStudentAcademicInfo = {
+            rollno: Number(studentRollRef.current.value),
+            program: studentProgramRef.current.value, 
+            branch: studentBranchRef.current.value, 
+            cgpa: studentCgpaRef.current.value
+        }
+        let res = await combinedApis.addToBothCollections({ studentInfo: newStudentInfo, studentAcademicInfo: newStudentAcademicInfo })
         if(res.status) {
             setMessage({
                 activated: true,
                 success: true
             })
             studentNameRef.current.value = ''
-            studentRollRef.current.value = ''
             studentMobileRef.current.value = ''
             studentEmailRef.current.value = ''
             studentCityRef.current.value = ''
             studentStateRef.current.value = ''
             studentPincodeRef.current.value = ''
+            studentProgramRef.current.value = ''
+            studentRollRef.current.value = ''
+            studentBranchRef.current.value = ''
+            studentCgpaRef.current.value = ''
         } else {
             setMessage({
                 activated: true,
@@ -48,7 +59,7 @@ const AddStudentInfo = () => {
     }
     return (
         <div className = 'container'>
-            <h1>Add Student Info</h1> <hr />
+            <h1>Add Student Info To Both Collections</h1> <hr />
             <form action = '' method = 'post' className = 'px-4' onSubmit = { handleSubmit }>
                 <div className = 'mb-2'>
                     <label htmlFor = 'name' className = 'form-label'>
@@ -56,23 +67,33 @@ const AddStudentInfo = () => {
                     </label>
                     <input type = 'text' ref = {studentNameRef} className = 'form-control' id = 'name' placeholder = 'Enter Student Name' required/>
                 </div>
-                <div className = 'mb-2'>
-                    <label htmlFor = 'roll' className = 'form-label'>
-                        Roll:
-                    </label>
-                    <input type = 'text' ref = {studentRollRef} className = 'form-control' id = 'roll' placeholder = 'Enter Roll Number' required/>
+                <div className = 'input-group mb-2 pe-3'>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'roll'>Roll:</label>
+                        <input id = 'roll' ref = { studentRollRef } className = 'form-control input-group-lg' type = 'text' placeholder = 'Enter Roll' required/>
+                    </div>       
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'mobile' className = 'ms-2'>Mobile:</label>
+                        <input id = 'mobile' ref = { studentMobileRef } className = 'form-control input-group-lg ms-2' type = 'text' placeholder = 'Enter Mobile' required/>
+                    </div>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'email' className = 'ms-3'>Email:</label>
+                        <input id = 'email' ref = { studentEmailRef } className = 'form-control input-group-lg ms-3' type = 'text' placeholder = 'Enter Email Address' required/>
+                    </div>
                 </div>
-                <div className = 'mb-2'>
-                    <label htmlFor = 'mobile' className = 'form-label'>
-                        Mobile:
-                    </label>
-                    <input type = 'text' ref = {studentMobileRef} className = 'form-control' id = 'mobile' placeholder = 'Enter Mobile Number' required/>
-                </div>
-                <div className = 'mb-2'>
-                    <label htmlFor = 'email' className = 'form-label'>
-                        Email address:
-                    </label>
-                    <input type = 'email' ref = {studentEmailRef} className = 'form-control' id = 'email' placeholder = 'Enter Email Address' required/>
+                <div className = 'input-group mb-2 pe-3'>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'program'>Program:</label>
+                        <input id = 'program' ref = { studentProgramRef } className = 'form-control input-group-lg' type = 'text' placeholder = 'Enter Program' required/>
+                    </div>       
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'branch' className = 'ms-2'>Branch:</label>
+                        <input id = 'branch' ref = { studentBranchRef } className = 'form-control input-group-lg ms-2' type = 'text' placeholder = 'Enter Branch' required/>
+                    </div>
+                    <div className = 'col-sm-4'>
+                        <label htmlFor = 'cgpa' className = 'ms-3'>Cgpa:</label>
+                        <input id = 'cgpa' ref = { studentCgpaRef } className = 'form-control input-group-lg ms-3' type = 'text' placeholder = 'Enter Cgpa:' required/>
+                    </div>
                 </div>
                 <div className = 'input-group mb-3 pe-3'>
                     <div className = 'col-sm-4'>
@@ -105,4 +126,4 @@ const AddStudentInfo = () => {
         </div>
     )
 }
-export default AddStudentInfo
+export default AddToBoth

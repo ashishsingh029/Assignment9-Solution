@@ -17,7 +17,6 @@ const AddStudentAcademicInfo = () => {
             branch: studentBranchRef.current.value, 
             cgpa: studentCgpaRef.current.value
         }
-        // console.log(newStudentAcademicInfo)
         let res = await studentAcademicInfoApis.addStudentAcademicInfo(newStudentAcademicInfo)
         if(res.status) {
             setMessage({
@@ -47,7 +46,7 @@ const AddStudentAcademicInfo = () => {
                 </div>
                 <div className = 'mb-2'>
                     <label htmlFor = 'program' className = 'form-label'>
-                        Mobile:
+                        Program:
                     </label>
                     <input type = 'text' ref = {studentProgramRef} className = 'form-control' id = 'program' placeholder = 'Enter Program' required/>
                 </div>
