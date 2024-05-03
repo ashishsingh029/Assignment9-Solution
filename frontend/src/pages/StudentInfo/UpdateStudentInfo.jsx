@@ -64,7 +64,7 @@ const UpdateStudentInfo = () => {
     }
     return (
         <div className = 'container'>
-            <h1>Update Student Info</h1> <hr />
+            <h1>Update Student Info for Roll { rollno }</h1> <hr />
             <form action = '' method = 'post' className = 'px-4' onSubmit = { handleSubmit }>
                 <div className = 'mb-2'>
                     <label htmlFor = 'name' className = 'form-label'>

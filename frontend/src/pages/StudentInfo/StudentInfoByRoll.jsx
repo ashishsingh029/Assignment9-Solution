@@ -7,7 +7,6 @@ const StudentInfoByRoll = () => {
     const [ studentInfo, setStudentInfo ] = useState(null)
     const [ deleted, setdeleted ] = useState(false)
     const getStudentInfo = async () => {
-        // console.log('Function called')
         try {
             let res = await studentInfoApis.getStudentInfoByRoll(rollno)
             if(res.status) {
@@ -28,7 +27,7 @@ const StudentInfoByRoll = () => {
     return (
         <div className = 'container'>
             <div className = 'd-flex align-items-center justify-content-between mb-0 pe-0'>
-                <h1 className = 'd-inline-block w-auto'>Student Info By Roll</h1> 
+                <h1 className = 'd-inline-block w-auto'>Student Info for Roll { rollno }</h1> 
                 <SearchByRollInNavbar />
             </div>
             <hr />

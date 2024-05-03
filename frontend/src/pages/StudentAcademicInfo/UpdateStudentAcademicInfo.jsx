@@ -53,7 +53,7 @@ const UpdateStudentAcademicInfo = () => {
     }
     return (
         <div className = 'container'>
-            <h1>Update Student Academic Info</h1> <hr />
+            <h1>Update Student Academic Info for Roll { rollno }</h1> <hr />
             <form action = '' method = 'post' className = 'px-4' onSubmit = { handleSubmit }>
             <div className = 'mb-2'>
                     <label htmlFor = 'roll' className = 'form-label'>

@@ -20,7 +20,7 @@ const GetAllStudentsAcademicInfo = () => {
     return (
         <div className = 'container'>
             <div className = 'd-flex align-items-center justify-content-between mb-0 pe-0'>
-                <h1 className = 'd-inline-block w-auto'>All Students Info</h1> 
+                <h1 className = 'd-inline-block w-auto'>All Students Academic Info</h1> 
                 <SearchAcademicByRollInNavbar />
             </div>
             <hr />

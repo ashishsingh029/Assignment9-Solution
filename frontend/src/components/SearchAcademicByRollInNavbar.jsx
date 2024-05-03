@@ -9,7 +9,7 @@ const SearchAcademicByRollInNavbar = () => {
     }
     return (
         <div className = 'd-inline-flex ms-auto'>
-            <input className = 'form-control me-1 flex-grow-2' id = 'search' ref = { studentRollRef } onChange = { updateToValue } placeholder = 'Enter Roll' />
+            <input className = 'form-control me-1 flex-grow-2' id = 'search' ref = { studentRollRef } onChange = { updateToValue } placeholder = 'Enter Roll' required/>
             <Link to = { toValue } className = 'btn btn-success'> 
                 Search
             </Link>

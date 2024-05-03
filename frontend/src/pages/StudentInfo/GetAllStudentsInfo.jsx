@@ -6,7 +6,6 @@ const GetAllStudentsInfo = () => {
     const [ students, setStudents ] = useState(null)
     const getAllStudentsInfo = async () => {
         let res = await studentInfoApis.getAllStudentInfo()
-        // console.log(res.data)
         if(res.status) {
             setStudents(res.data)
         }

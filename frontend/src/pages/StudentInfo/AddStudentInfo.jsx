@@ -89,7 +89,7 @@ const AddStudentInfo = () => {
                     </div>
                 </div>
                 <button type = 'submit' className = 'btn w-100 btn-success mb-4 fw-semibold'>
-                    Submit
+                    Add
                 </button>
             </form>
             { message.activated && message.success && 
